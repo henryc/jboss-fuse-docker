@@ -31,6 +31,9 @@ VOLUME /opt/jboss/jboss-fuse/etc
 VOLUME /opt/jboss/jboss-fuse/data
 VOLUME /opt/jboss/jboss-fuse/deploy
 
+#ADD custom user properties.
+COPY users.properties /opt/jboss/jboss-fuse/etc/
+
 # lets default to the jboss-fuse dir so folks can more easily navigate to around the server install
 WORKDIR /opt/jboss/jboss-fuse
 CMD /opt/jboss/jboss-fuse/bin/fuse server
