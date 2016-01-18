@@ -1,10 +1,11 @@
-# Use latest jboss/base-jdk:7 image as the base
-FROM jboss/base-jdk:7
+# Use latest jboss/base-jdk:8 image as the base
+FROM jboss/base-jdk:8
 
-MAINTAINER Hiram Chirino <hchirino@redhat.com>
+MAINTAINER Jaromír Juren <jaromir.juren@gmail.com>
 
 # Set the FUSE_VERSION env variable
-ENV FUSE_VERSION 6.2.0.redhat-084
+ENV FUSE_VERSION 6.2.1.redhat-086
+
 
 # If the container is launched with re-mapped ports, these ENV vars should
 # be set to the remapped values.
@@ -19,20 +20,22 @@ ENV FUSE_PUBLIC_STOMP_SSL_PORT 61614
 
 # Install fuse in the image.
 COPY install.sh /opt/jboss/install.sh
-RUN /opt/jboss/install.sh
+RUN sh install.sh
 
 EXPOSE 8181 8101 1099 44444 61616 1883 5672 61613 61617 8883 5671 61614
 
 #
 # The following directories can hold config/data, so lets suggest the user
 # mount them as volumes.
+
 VOLUME /opt/jboss/jboss-fuse/bin
 VOLUME /opt/jboss/jboss-fuse/etc
 VOLUME /opt/jboss/jboss-fuse/data
 VOLUME /opt/jboss/jboss-fuse/deploy
 
 #ADD custom user properties.
-COPY users.properties /opt/jboss/jboss-fuse/etc/
+
+COPY user.properties /opt/jboss/jboss-fuse/etc/
 
 # lets default to the jboss-fuse dir so folks can more easily navigate to around the server install
 WORKDIR /opt/jboss/jboss-fuse
