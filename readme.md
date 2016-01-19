@@ -1,8 +1,11 @@
 # FUSE Docker image
 
 This project builds a Docker image for [JBoss Fuse](http://www.jboss.org/products/fuse/overview/). 
-Before you installation of this image you  must be part of Jboss Developer program. 
+For installation of this image you must be part of Jboss Developer program. 
 (http://www.jboss.org/terms-and-conditions/)
+This image content is under RedHat licencing.
+(http://www.redhat.com/en/about/licenses)
+
 ## Build
 
     docker build -t jaromirecek/jboss-fuse-dev:6.2.1 .
