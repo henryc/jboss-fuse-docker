@@ -8,7 +8,7 @@ This image content is under RedHat licencing.
 
 ## Build
 
-    docker build -t jaromirecek/jboss-fuse-dev:6.2.1 .
+    docker build -t henryc/jboss-fuse-dev:6.2.1 .
 
 ## Usage
 
@@ -21,7 +21,7 @@ and have not exposed the web console port on the docker host.
 
 ##Run
 
-    docker run -it -p 8181:8181 jaromirecek/jboss-fuse-dev:6.2.1
+    docker run -it -p 8181:8181 henryc/jboss-fuse-dev:6.2.1
 
 The administration console should be available at [http://localhost:8181/hawtio](http://localhost:8181/hawtio)
 
